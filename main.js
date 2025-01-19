@@ -234,23 +234,49 @@ function displayMerchantItems(event) {
 
 function getMerchantCoupons(event) {
   let merchantId = event.target.closest("article").id.split('-')[1]
-  console.log("Merchant ID:", merchantId)
 
-  fetchData(`merchants/${merchantId}`)
+  fetchData(`merchants/${merchantId}/coupons`)
   .then(couponData => {
-    console.log("Coupon data from fetch:", couponData)
-    displayMerchantCoupons(couponData);
+    displayMerchantCoupons(couponData, merchantId);
   })
 }
 
-function displayMerchantCoupons(coupons) {
+function displayMerchantCoupons(coupons, id) {
   show([couponsView])
-  hide([merchantsView, itemsView])
-
-  couponsView.innerHTML = `
-    <p>Coupon data will go here.</p>
-  `
-}
+  hide([merchantsView, itemsView, addNewButton])
+  showingText.innerHTML = `All Coupons for Merchant #${id}`
+  if (coupons.data.length === 0) {
+    couponsView.innerHTML = `This Merchant currently has no coupons.`
+    } else {
+      couponsView.innerHTML = ``
+      coupons.data.forEach((coupon) => {
+      let merchant = findMerchant(coupon.attributes.merchant_id).attributes.name
+        if (coupon.attributes.dollar_off === null) {
+          couponsView.innerHTML += `
+            <article class="coupon" id="coupon-${coupon.id}>
+              <img src= "" alt="">
+              <h2>${coupon.attributes.name}</h2>
+              <p>Coupon Code: ${coupon.attributes.code}</p>
+              <p>Percent Off: ${coupon.attributes.percent_off}%</p>
+              <p>Coupon Status: ${coupon.attributes.status}</p>
+              <p class="merchant-name-in-coupon">Merchant: ${merchant}</p>
+            </article>
+            `
+        } else {
+          couponsView.innerHTML += `
+          <article class="coupon" id="coupon-${coupon.id}>
+            <img src= "" alt="">
+            <h2>${coupon.attributes.name}</h2>
+            <p>Coupon Code: ${coupon.attributes.code}</p>
+            <p>Dollars Off: ${coupon.attributes.dollar_off}</p>
+            <p>Coupon Status: ${coupon.attributes.status}</p>
+            <p class="merchant-name-in-coupon">Merchant: ${merchant}</p>
+          </article>
+          `
+        };
+      });
+    }
+};
 
 //Helper Functions
 function show(elements) {
