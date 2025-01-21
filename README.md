@@ -20,6 +20,7 @@ The little shop front end allows you to view all the Merchants in the little sho
   - Open the link: http://localhost:5173/
 
 ### Preview of App:
+![Screenshot 2025-01-21 at 2 26 37 PM](https://github.com/user-attachments/assets/a18858b1-4f6a-4b5c-a6b2-c66368cf5c41)
 
 
 ### Context:
