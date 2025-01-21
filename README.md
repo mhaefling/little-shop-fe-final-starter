@@ -1,47 +1,34 @@
-# Little Shop - Coupon Codes | Final Project | Frontend Starter Repo
+# Little_Shop
 
-This Vite Little Shop - Coupon Codes FE Final Project Boilerplate is built to consume and display the data from the BE Rails API built in the Mod 2 Final Project.  
-
-## Set Up Instructions
-
-**Note:** Do **not** clone this repo into your backend repo. Put it somewhere else as a stand alone. The BE and FE repos will remain two separate repos and you will submit the links to each.  
-
-1. Fork repo
-1. Clone forked repo and rename it `git clone <repo> <new name>`
-1. `cd` into cloned repo
-1. Run `npm install`
-1. Run `npm run dev` to start developing.
-  1. You'll see in the terminal that the project has opened at "http://localhost:5173/"
-
-## Notes
-
-This FE application is build to consume the data from your Rails API.  In order for it to work, you must have your Rails API running on localhost:3000. You will see fetch errors when running the FE without the BE API up and running.  
-
-Follow the directions in the FE requirements portion of the Little Shop Coupon Codes final project spec. When you are finished with the FE work, update this README to remove the current content and follow the template below.  
-
-______________________________________________________  
-# README Template  
-Before turning this project in, erase this line and everything above it and fill in the info below.  
-______________________________________________________  
-
-# Hang in There  
-
-Link to your GitHub. Consider also providing LinkedIn link
+* Authors:
+    - Matt Haefling
+        - [LinkedIn](https://www.linkedin.com/in/matthew-haefling/)
+        - [Github](https://github.com/mhaefling)
 
 ### Abstract:
-(Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+The little shop front end allows you to view all the Merchants in the little shop data base, viewing all the items, and viewing items per Merchant and coupons per Merchant.
 
 ### Installation Instructions:
-(What steps does a person have to take to get your app cloned down and running?)
+1. Clone the Repo:
+  - https://github.com/mhaefling/little-shop-be-final-starter
+2. Start the Backend server
+  - `rails server`
+3. clone down the Frontend
+  - https://github.com/mhaefling/little-shop-fe-final-starter
+4. Start the dev sessions with the command
+  - `npm run dev`
+  - Open the link: http://localhost:5173/
 
 ### Preview of App:
-(Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off. gifs preferred!)
+
 
 ### Context:
-(Give some context for the project here. How long did you have to work on it? What specific work/improvements did you contribute to this FE application?)
+Added the coupons to the coupon view section, so that you can view the coupons of each Merchant.
 
 ### Learning Goals:
-(What were the learning goals of this project? What tech did you work with?)
+Learn how to work with the frontend and requesting API data so that you can display it on the front end.
+
 
 ### Wins + Challenges:
-(What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+My backend is structured so that each coupon has a dollar_off attribute and a percent _off attribute.
+Creating the conditional to only display the one that contains a value was a win.
